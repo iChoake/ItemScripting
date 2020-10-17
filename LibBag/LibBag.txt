@@ -1,0 +1,9 @@
+## Title: LibBag
+## Author: @eromelcm
+## Version: 1.0
+## AddOnVersion: 1
+## APIVersion: 100033
+## IsLibrary: true
+## DependsOn: LibAddon
+
+LibBag.lua
