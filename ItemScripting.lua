@@ -31,3 +31,7 @@ Event.Filter (EVENT_INVENTORY_SINGLE_SLOT_UPDATE,
 
 Event.Filter (EVENT_INVENTORY_SINGLE_SLOT_UPDATE, 
   REGISTER_FILTER_IS_NEW_ITEM, true)
+
+SLASH_COMMANDS["/filterall"] = function () 
+  for Item in Backpack:Items() do Pickup(Item) end
+end

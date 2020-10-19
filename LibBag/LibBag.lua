@@ -87,6 +87,11 @@ local function Item (bag, slot)
 
   -- Numbers ----------------------------------------------
 
+  -- (int) Item id, not instance id.
+  function Item:ID () 
+    return ItemId(bag, slot)
+  end
+
   -- (int) Item bag id.
   function Item:BagID ()
     return bag
@@ -95,11 +100,6 @@ local function Item (bag, slot)
   -- (int) Item slot index.
   function Item:Slot ()
     return slot
-  end
-
-   -- (int) Item id, not instance id.
-  function Item:ID () 
-    return ItemId(bag, slot)
   end
 
   -- (int) The size of the item stack.
