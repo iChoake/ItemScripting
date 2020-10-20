@@ -147,6 +147,11 @@ local function Item (bag, slot)
     return GetItemRequiredChampionPoints(bag, slot) 
   end
 
+  -- (int) Vendor gold sell value.
+  function Item:Value()
+    return GetItemSellValueWithBonuses(bag, slot)
+  end
+
   -- (int) Craft skill level 1-10.
   function Item:CraftRank () 
     return GetItemLinkRequiredCraftingSkillRank(link) 
