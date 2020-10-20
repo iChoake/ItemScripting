@@ -17,6 +17,8 @@ Event.On (EVENT_INVENTORY_SINGLE_SLOT_UPDATE,
 Event.On (EVENT_OPEN_BANK, 
   function (code, bankId) 
     local Bank = Bag(bankId)
+    Bank:StackAll()
+    Backpack:StackAll()
     if bankId == BAG_BANK 
     then Banking(Bank, Backpack) end
   end)

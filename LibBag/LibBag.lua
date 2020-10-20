@@ -208,7 +208,7 @@ local function Item (bag, slot)
 
   -- ({string}) Filter type names.
   function Item:FilterNames ()
-    return Map(Item:FilterTypes(), function(num) 
+    return Map(Item:FilterTypes(), function (num) 
       return GetString('SI_ITEMFILTERTYPE', num) 
     end)
   end
@@ -284,8 +284,8 @@ local function Item (bag, slot)
 
   -- (boolean) Is this item one of the listed filter types?
   function Item:IsFilterType (...)
-    return Contains({...}, unpack(Item:FilterTypes())) 
-        or Contains({...}, unpack(Item:FilterNames()))
+    return Contains(Item:FilterTypes(), ...) 
+        or Contains(Item:FilterNames(), ...)
   end
 
   -- (boolean) is this item have one of the listed traits?
@@ -587,18 +587,10 @@ end
 -----------------------------------------------------------
 
 Event.On (EVENT_OPEN_BANK, function (code, bankId)
-  StackBag(bankId)
-  StackBag(BACKPACK)
   Event.OnUpdate(500, function () 
     local index, func = next(moveQueue)
-    if index then 
-      func() 
-      moveQueue[index] = nil
-    else 
-      Event.ForgetUpdate() 
-      StackBag(bankId)
-      StackBag(BACKPACK)
-    end
+    if index then func(); moveQueue[index] = nil
+    else Event.ForgetUpdate() end
   end)
 end)
 
