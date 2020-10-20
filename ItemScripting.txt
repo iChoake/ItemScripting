@@ -1,5 +1,5 @@
 ## Title: Item Scripting
-## Author: @eromelcm
+## Author: eromelcm
 ## Version: 1.0
 ## AddOnVersion: 1
 ## APIVersion: 100033
