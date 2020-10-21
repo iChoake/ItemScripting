@@ -4,6 +4,7 @@ local Insert = table.insert
 local moveQueue  = { }
 local StackSize  = GetSlotStackSize
 local ItemId     = GetItemId
+local ItemLink   = GetItemLink
 local IsItemJunk = IsItemJunk
 local BankingBag = GetBankingBag
 local BACKPACK   = BAG_BACKPACK
@@ -29,7 +30,7 @@ end
 local function Item (bag, slot)
 
   local Item = { }
-  local link = GetItemLink(bag, slot, 1)
+  local link = ItemLink(bag, slot, 1)
   local bag2 = bag == BACKPACK and BankingBag() or BACKPACK
 
   -- Item Utility Functions -------------------------------
