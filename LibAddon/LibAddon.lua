@@ -1,10 +1,7 @@
 
-ADDON     = { }
-LIBARY    = { }
-
-print     = d
-strformat = zo_strformat
-calllater = zo_callLater
+ADDON  = { }
+LIBARY = { }
+print  = d
 
 local EM = EVENT_MANAGER
 
