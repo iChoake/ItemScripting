@@ -14,7 +14,7 @@ function Addon (addon)
   local function Require (name)
     if MODULES[name] then return MODULES[name] end
     if LIBARY[name] then return LIBARY[name] end
-    error(strformat('require "%s" was not found.', name))
+    error(zo_strformat('require "%s" was not found.', name))
   end
 
   local function Export (name, value, public)
