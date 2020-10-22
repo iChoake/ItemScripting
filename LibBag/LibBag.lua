@@ -2,11 +2,12 @@ local Require, Export, Event = Addon('LibBag')
 local Insert = table.insert
 
 local moveQueue  = { }
-local StackSize  = GetSlotStackSize
 local ItemId     = GetItemId
 local ItemLink   = GetItemLink
 local IsItemJunk = IsItemJunk
+local StackSize  = GetSlotStackSize
 local BankingBag = GetBankingBag
+local GetString  = GetString
 local BACKPACK   = BAG_BACKPACK
 
 local function Map (list, func)
