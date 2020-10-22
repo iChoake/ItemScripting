@@ -1,4 +1,4 @@
-# Item Scripting
+# Item Scripting (Alpha)
 
 Item Scripting is an Elder Scrolls Online addon that enables you to script and automate many inventory management tasks: **mark items as junk, destroy items, move items in and out of your bank, and more**. Unlike similar addons, Item Scripting gives you complete control by letting you write your own code. Item Scripting provides an easy to use API for clean and readable scripts.
 
