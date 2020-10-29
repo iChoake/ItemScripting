@@ -87,9 +87,11 @@ end
 function with (object)
   return setmetatable (
   { value = function() return object end }, 
-  { __index = function(self, ...)  
+  { __index = function(self, func) 
+    return function (self, ...)
       assert(object[func], 'function not found in object')
       object[func](object, ...)
       return self
-    end })
+    end
+  end })
 end
