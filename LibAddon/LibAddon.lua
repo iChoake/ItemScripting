@@ -68,6 +68,10 @@ function Addon (addon)
     end)
   end
 
+  local function CallLater (delay, func)
+    zo_callLater(func, delay)
+  end
+
   -- Create Addon Entry -------------
 
   if not ADDON[addon] then ADDON[addon] = 
@@ -78,7 +82,8 @@ function Addon (addon)
     , Forget       = Forget
     , ForgetUpdate = ForgetUpdate
     , Filter       = Filter
-    , Loaded       = Loaded }}
+    , Loaded       = Loaded
+    , CallLater    = CallLater }}
   end
 
   return unpack(ADDON[addon])
@@ -86,12 +91,10 @@ end
 
 function with (object)
   return setmetatable (
-  { value = function() return object end }, 
-  { __index = function(self, func) 
-    return function (self, ...)
+  { Return = function() return object end }, 
+  { __index = function(self, ...)  
       assert(object[func], 'function not found in object')
       object[func](object, ...)
       return self
-    end
-  end })
+    end })
 end
