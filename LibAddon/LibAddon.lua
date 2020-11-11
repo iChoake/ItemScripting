@@ -1,5 +1,5 @@
 
-ADDON  = { }
+ADDONS = { }
 LIBARY = { }
 print  = d
 
@@ -74,7 +74,7 @@ function Addon (addon)
 
   -- Create Addon Entry -------------
 
-  if not ADDON[addon] then ADDON[addon] = 
+  if not ADDONS[addon] then ADDONS[addon] = 
     { Require, Export, 
     { On           = On
     , OnUpdate     = OnUpdate 
@@ -86,15 +86,17 @@ function Addon (addon)
     , CallLater    = CallLater }}
   end
 
-  return unpack(ADDON[addon])
+  return unpack(ADDONS[addon])
 end
 
 function with (object)
   return setmetatable (
   { Return = function() return object end }, 
-  { __index = function(self, ...)  
+  { __index = function(self, func) 
+    return function (self, ...)
       assert(object[func], 'function not found in object')
       object[func](object, ...)
       return self
-    end })
+    end
+  end })
 end
