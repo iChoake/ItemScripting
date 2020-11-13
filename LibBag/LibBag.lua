@@ -1,3 +1,4 @@
+
 local Require, Export, Event = Addon('LibBag')
 local Insert = table.insert
 
@@ -72,13 +73,6 @@ local function Item (bag, slot)
   -- (string) Flavor text of item.
   function Item:FlavorText ()
     return GetItemLinkFlavorText(link)
-  end
-
-  -- (string) Gear set name.
-  function Item:SetName ()
-    local hasSet, name = GetItemLinkSetInfo(link)
-    if hasSet then return name 
-    else return GetString('SI_ITEMTYPE', 0) end
   end
 
   -- (string) File path to icon image.
@@ -166,33 +160,33 @@ local function Item (bag, slot)
 
   -- Number/String ----------------------------------------
 
-  -- (int, string) General type id.
+  -- (int, string) General type id, name.
   function Item:Type ()
     local num = GetItemType(bag, slot)
     return num, GetString('SI_ITEMTYPE', num)
   end
 
-  -- (int, string) Specific type id.
+  -- (int, string) Specific type id, name.
   function Item:SpecialType ()
     local _, num = GetItemType(bag, slot)
     if num == 0 then return 0, GetString('SI_ITEMTYPE', num) end
     return num, GetString('SI_SPECIALIZEDITEMTYPE', num)
   end
 
-  -- (int, string) Trait id.
+  -- (int, string) Trait id, name.
   function Item:Trait ()
     local num = GetItemTrait(bag, slot)
     if num == 0 then return 0, GetString('SI_ITEMTYPE', num) end
     return num, GetString('SI_ITEMTRAITTYPE', num)
   end
 
-  -- (int, string) Armor type id.
+  -- (int, string) Armor type id, name.
   function Item:ArmorType ()
     local num = GetItemArmorType(bag, slot)
     return num, GetString('SI_ARMORTYPE', num)
   end
 
-  -- (int, string) Weapon type id.
+  -- (int, string) Weapon type id, name.
   function Item:WeaponType ()
     local num = GetItemWeaponType(bag, slot)
     if num == 0 then return 0, GetString('SI_ITEMTYPE', 0) end
@@ -204,6 +198,13 @@ local function Item (bag, slot)
   function Item:Quality ()
     local _, _, _, _, _, _, _, num = GetItemInfo(bag, slot)
     return num, GetString('SI_ITEMQUALITY', num)
+  end
+
+  -- (int, string) Gear set id, name.
+  function Item:GearSet ()
+    local hasSet, name, _, _, _, num = GetItemLinkSetInfo(link)
+    if hasSet then return num, name 
+    else return num, GetString('SI_ITEMTYPE', 0) end
   end
 
   -- Lists ------------------------------------------------
@@ -277,6 +278,11 @@ local function Item (bag, slot)
   function Item:IsResearchable ()
     local info = GetItemTraitInformation(bag, slot)
     return info == ITEM_TRAIT_INFORMATION_CAN_BE_RESEARCHED
+  end
+
+  -- (boolean) Is this item's set collected?
+  function Item:IsCollected ()
+    return IsItemSetCollectionPieceUnlocked(ItemId(bag, slot))
   end
 
   -- (boolean) Is this item one of the listed types?
