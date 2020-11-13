@@ -28,7 +28,7 @@ end
 
 2. Open `Documents/Elder Scrolls Online/live/Addons/ItemScripting/Script.lua` in your favourite text editor. `Script.lua` is where all your custom code will reside. 
 
-3. Look at the [wiki](https://github.com/m7andrew/ItemScripting/wiki) for examples and documentation.
+3. Look at the [Wiki](https://github.com/m7andrew/ItemScripting/wiki) for documentation, and [Example.lua](https://github.com/m7andrew/ItemScripting/blob/main/Example.lua) for an example script.
 
 4. Use the in-game chat commands `/reloadui` to load changes you make to `Script.lua` and `/filterall` to reevaluate every item in your inventory.
 
