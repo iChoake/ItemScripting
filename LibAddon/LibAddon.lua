@@ -1,11 +1,9 @@
 
-ADDONS = { }
-LIBARY = { }
-print  = d
+local ADDONS = { }
+local LIBARY = { }
+local EM     = EVENT_MANAGER
 
-local EM = EVENT_MANAGER
-
-function Addon (addon)
+function LibAddon (addon)
 
   -- Addon Module Managment ---------
 
@@ -87,16 +85,4 @@ function Addon (addon)
   end
 
   return unpack(ADDONS[addon])
-end
-
-function with (object)
-  return setmetatable (
-  { Return = function() return object end }, 
-  { __index = function(self, func) 
-    return function (self, ...)
-      assert(object[func], 'function not found in object')
-      object[func](object, ...)
-      return self
-    end
-  end })
 end

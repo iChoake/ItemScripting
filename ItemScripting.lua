@@ -1,5 +1,5 @@
 
-local Require, Export, Event = Addon('ItemScripting')
+local Require, Export, Event = LibAddon('ItemScripting')
 
 local LibBag  = Require('LibBag')
 local Pickup  = Require('Pickup')

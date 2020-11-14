@@ -1,5 +1,5 @@
 
-local Require, Export, Event = Addon('LibBag')
+local Require, Export, Event = LibAddon('LibBag')
 local Insert = table.insert
 
 local moveQueue  = { }

@@ -1,4 +1,4 @@
-local Require, Export = Addon('ItemScripting')
+local Require, Export = LibAddon('ItemScripting')
 
 -----------------------------------------------------------
 --       KEEP A COPY OF THIS FILE TO SAVE YOUR CODE       

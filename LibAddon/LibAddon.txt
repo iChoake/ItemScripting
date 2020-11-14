@@ -1,7 +1,7 @@
 ## Title: LibAddon
 ## Author: eromelcm
-## Version: 1.0
-## AddOnVersion: 1
+## Version: 2
+## AddOnVersion: 2
 ## APIVersion: 100033
 ## IsLibrary: true
 
