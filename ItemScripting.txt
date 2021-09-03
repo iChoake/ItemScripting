@@ -1,8 +1,8 @@
 ## Title: Item Scripting
 ## Author: eromelcm
-## Version: 2.1
+## Version: 2.2
 ## AddOnVersion: 2
-## APIVersion: 100034
+## APIVersion: 101031
 ## DependsOn: LibAddon LibBag
 
 Script.lua

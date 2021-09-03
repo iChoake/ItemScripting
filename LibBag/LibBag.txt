@@ -1,8 +1,8 @@
 ## Title: LibBag
 ## Author: eromelcm
-## Version: 1.1
+## Version: 1.2
 ## AddOnVersion: 1
-## APIVersion: 100034
+## APIVersion: 101031
 ## IsLibrary: true
 ## DependsOn: LibAddon
 
