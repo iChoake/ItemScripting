@@ -39,7 +39,7 @@ local function Item (bag, slot)
 
   local function FillSlot ()
     local id = ItemId(bag, slot)
-    for slot2 = 0, GetBagSize(bag2) do
+    for slot2 = 0, GetBagUseableSize(bag2) do
       if ItemId(bag2, slot2) == id then 
         local stack2, max = StackSize(bag2, slot2)
         if stack2 < max then return slot2, (max - stack2) end
@@ -529,7 +529,7 @@ local function Bag (id)
 
   -- (int) Total number of slots this bag has.
   function Bag:Size () 
-    return GetBagSize(id) 
+    return GetBagUseableSize(id) 
   end
 
   -- (int) Number of slots without an item.
@@ -564,7 +564,7 @@ local function Bag (id)
 
   -- (interator) Each item in the bag to be used in a for loop.
   function Bag:Items ()
-    local index, size = -1, GetBagSize(id) 
+    local index, size = -1, GetBagUseableSize(id) 
     return function ()
       index = index + 1
       while index <= size do 
