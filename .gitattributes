@@ -1,6 +1,6 @@
 * text=auto
 
-.gitattributes export-ignore
-.gitignore export-ignore
-README.md export-ignore
-Example.lua export-ignore
+.gitattributes  export-ignore
+.gitignore      export-ignore
+Readme.md       export-ignore
+Example.lua     export-ignore
