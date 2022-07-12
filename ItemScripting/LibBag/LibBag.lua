@@ -270,7 +270,7 @@ local function Item (bag, slot)
 
   -- (boolean) Is this item in a quickslot?
   function Item:IsQuickslotted ()
-    local index = GetItemCurrentActionBarSlot(bag, slot)
+    local index = FindActionSlotMatchingItem(bag, slot, HOTBAR_CATEGORY_QUICKSLOT_WHEEL)
     return index ~= nil
   end
 
